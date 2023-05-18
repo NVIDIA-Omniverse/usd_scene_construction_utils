@@ -1,2 +1,2 @@
-# usd_scene_construction_utils
+# USD Scene Construction Utilities
 Utilities and examples for constructing scenes with the USD Python API
