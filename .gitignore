@@ -1,0 +1,5 @@
+__pycache__
+*.egg-info
+docs/_build
+data
+examples/render_with_replicator/output
