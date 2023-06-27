@@ -16,12 +16,13 @@
 import sys
 import os
 import random
-sys.path.append("/home/john/Projects/usd_scene_construction_utils") # use your install path
+from pathlib import Path
+sys.path.append(f"{Path.home()}/usd_scene_construction_utils") # use your install path
 
 from usd_scene_construction_utils import *
 
 # set to your output dir
-OUTPUT_DIR = "/home/john/Projects/usd_scene_construction_utils/examples/replicator/output"
+OUTPUT_DIR = f"{Path.home()}/usd_scene_construction_utils/examples/replicator/output"
 
 
 def add_box_stack(stage, path: str, box_material):

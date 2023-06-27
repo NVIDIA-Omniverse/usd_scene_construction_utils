@@ -16,23 +16,11 @@
 import sys
 import os
 import random
-sys.path.append("/home/john/Projects/usd_scene_construction_utils") # use your install path
-sys.path.append("/home/john/Projects/usd_scene_construction_utils/examples/pallet_with_boxes") # use your install path
+from pathlib import Path
+sys.path.append(f"{Path.home()}/usd_scene_construction_utils") # use your install path
+sys.path.append(f"{Path.home()}/usd_scene_construction_utils/examples/pallet_with_boxes") # use your install path
 
 from usd_scene_construction_utils import *
-
-
-import math
-import random
-import sys
-sys.path.append("/home/john/Projects/usd_scene_construction_utils")
-from usd_scene_construction_utils import (
-    add_usd_ref,
-    add_semantics,
-    translate,
-
-)
-
 from assets import ALL_PALLETS, SHIPPING
 
 
