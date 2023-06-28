@@ -22,7 +22,7 @@ sys.path.append(f"{Path.home()}/usd_scene_construction_utils") # use your instal
 from usd_scene_construction_utils import *
 
 # set to your output dir
-OUTPUT_DIR = f"{Path.home()}/usd_scene_construction_utils/examples/replicator/output"
+OUTPUT_DIR = f"{Path.home()}/usd_scene_construction_utils/examples/render_with_replicator/output"
 
 
 def add_box_stack(stage, path: str, box_material):
@@ -44,14 +44,14 @@ def build_scene(stage):
     cardboard = add_mdl_material(
         stage,
         "/scene/cardboard",
-        "omniverse://ov-content/Library/Materials/Base/Wall_Board/Cardboard.mdl"
+        "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Wall_Board/Cardboard.mdl"
     )
 
     # Add concrete material
     concrete = add_mdl_material(
         stage,
         "/scene/concrete",
-        "omniverse://ov-content/Library/Materials/Base/Masonry/Concrete_Smooth.mdl"
+        "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Masonry/Concrete_Smooth.mdl"
     )
 
     # Add floor plane

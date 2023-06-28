@@ -34,14 +34,14 @@ stage = new_omniverse_stage()
 cardboard = add_mdl_material(
     stage,
     "/scene/cardboard",
-    "omniverse://ov-content/Library/Materials/Base/Wall_Board/Cardboard.mdl"
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Wall_Board/Cardboard.mdl"
 )
 
 # Add concrete material
 concrete = add_mdl_material(
     stage,
     "/scene/concrete",
-     "omniverse://ov-content/Library/Materials/Base/Masonry/Concrete_Smooth.mdl"
+     "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Masonry/Concrete_Smooth.mdl"
 )
 
 # Add floor plane

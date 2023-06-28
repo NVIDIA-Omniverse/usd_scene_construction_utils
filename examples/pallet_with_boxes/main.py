@@ -21,18 +21,27 @@ sys.path.append(f"{Path.home()}/usd_scene_construction_utils") # use your instal
 sys.path.append(f"{Path.home()}/usd_scene_construction_utils/examples/pallet_with_boxes") # use your install path
 
 from usd_scene_construction_utils import *
-from assets import ALL_PALLETS, SHIPPING
 
+PALLET_URIS = [
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Wood/Block_A/BlockPallet_A01_PR_NVD_01.usd",
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Wood/Block_B/BlockPallet_B01_PR_NVD_01.usd",
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Wood/Wing_A/WingPallet_A01_PR_NVD_01.usd"
+]
 
+CARDBOARD_BOX_URIS = [
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A02_16cm_PR_NVD_01.usd",
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A05_26x26x11cm_PR_NVD_01.usd",
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Printer_A/PrintersBox_A05_23x28x25cm_PR_NVD_01.usd"
+]
 
 def add_pallet(stage, path: str):
-    prim = add_usd_ref(stage, path, random.choice(ALL_PALLETS))
+    prim = add_usd_ref(stage, path, random.choice(PALLET_URIS))
     add_semantics(prim, "class", "pallet")
     return prim
 
 def add_cardboard_box(stage, path: str):
-    prim = add_usd_ref(stage, path, random.choice(SHIPPING))
-    add_semantics(prim, "class", "distractor")
+    prim = add_usd_ref(stage, path, random.choice(CARDBOARD_BOX_URIS))
+    add_semantics(prim, "class", "box")
     return prim
 
 
@@ -47,24 +56,17 @@ def add_pallet_with_box(stage, path: str):
     return container
 
 
-def add_bush(stage, path: str):
-    url = "omniverse://ov-content/Library/Assets/Vegetation/Shrub/Grass_Short_A.usd"
-    return add_usd_ref(stage, path, url)
-
-
 def add_tree(stage, path: str):
-    url = "omniverse://ov-content/Library/Assets/Vegetation/Trees/American_Beech.usd"
+    url = "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Vegetation/Trees/American_Beech.usd"
     return add_usd_ref(stage, path, url)
 
 
 stage = new_omniverse_stage()
 
-brick = add_mdl_material(stage, "/scene/brick", "omniverse://ov-content/Library/Materials/Base/Masonry/Brick_Pavers.mdl")
+brick = add_mdl_material(stage, "/scene/brick", "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Masonry/Brick_Pavers.mdl")
 pallet_box = add_pallet_with_box(stage, "/scene/pallet")
 floor = add_plane(stage, "/scene/floor", size=(1000, 1000), uv=(20., 20.))
-bush = add_bush(stage, "/scene/bush")
 tree = add_tree(stage, "/scene/tree")
-translate(bush, (120, 0, 0))
 translate(tree, (100, -150, 0))
 
 bind_material(floor, brick)

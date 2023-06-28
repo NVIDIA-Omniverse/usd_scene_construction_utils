@@ -37,8 +37,8 @@ from usd_scene_construction_utils import (
 import random
 from typing import Tuple
 
-box_asset_url = "omniverse://ov-content/NVIDIA/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A//FlatBox_A02_15x21x8cm_PR_NVD_01.usd"
-hand_truck_asset_url = "omniverse://ov-content/NVIDIA/Assets/DigitalTwin/Assets/Warehouse/Equipment/Hand_Trucks/Convertible_Aluminum_A/ConvertableAlumHandTruck_A02_PR_NVD_01.usd"
+box_asset_url = "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A02_15x21x8cm_PR_NVD_01.usd"
+hand_truck_asset_url = "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Equipment/Hand_Trucks/Convertible_Aluminum_A/ConvertableAlumHandTruck_A02_PR_NVD_01.usd"
 
 
 def add_box_of_size(
@@ -194,7 +194,7 @@ floor = add_plane(stage, "/scene/floor", size=(1000, 1000))
 concrete = add_mdl_material(
     stage,
     "/scene/materials/concrete", 
-    "omniverse://ov-content/Library/Materials/Base/Masonry/Concrete_Polished.mdl"
+    "http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Masonry/Concrete_Polished.mdl"
 )
 bind_material(floor, concrete)
 
